@@ -1,0 +1,15 @@
+version: "2"
+cloud:
+  # Replace <PROJECT_ID> with your project ID from the sqlc Cloud dashboard
+  project: "01HHBP0QNRYGXH2XE1BKR7EQT2"
+sql:
+  - engine: "postgresql"
+    queries: "./db/query/"
+    schema: "./db/migration/"
+    database:
+      managed: true
+    gen:
+      go:
+        package: "db"
+        out: "./db/sqlc"
+        emit_json_tags: true
