@@ -16,6 +16,8 @@ const (
 
 var testQueries *Queries
 
+var testStore *Store
+
 func TestMain(m *testing.M) {
 	coon, err := sql.Open(dbDriver, dbSource)
 	if err != nil {
@@ -23,6 +25,6 @@ func TestMain(m *testing.M) {
 	}
 
 	testQueries = New(coon)
-
+	testStore = NewStore(coon)
 	os.Exit(m.Run())
 }
